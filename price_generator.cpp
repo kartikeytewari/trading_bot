@@ -18,8 +18,8 @@ int main(int count, char* inp[])
     ios_base::sync_with_stdio(false);
     cin.tie(0);
 
-    srand(stoi(inp[2]));
     int n=stoi(inp[1]);
+    srand(stoi(inp[2]));
 
     cout << n << endl;
     for (int i=0;i<=n-1;i++)
