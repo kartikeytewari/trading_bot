@@ -23,23 +23,24 @@ int main(int count, char* inp[])
     int n;
     cin >> n;
 
-    vector<int> real_val(n);
+    vector<int> real_price(n,0);
     for (int i=0;i<=n-1;i++)
     {
-        cin >> real_val[i];
+        cin >> real_price[i];
     }
 
-    vector<int> moving_price(n);
+    vector<int> moving_price(n,0);
     for (int i=0;i<=n-1;i++)
     {
         int local=0;
-        int count=0;
-        for (int j=i;j<=max(i-moving_price_buffer,0);j++)
+        int count_avg=0;
+        for (int j=i;j>=max(i-moving_price_buffer,0);j--)
         {
-            local+=real_val[j];
-            count++;
+            local+=real_price[j];
+            count_avg++;
         }
-        moving_price[i]=local/count;
+        cout << "i= " << i << endl;
+        moving_price[i]=local/count_avg;
     }
 
     for (int i=1;i<=n-1;i++)
