@@ -8,4 +8,4 @@ build:
 
 run:
 	./price_generator 10000 1 > price_val.log
-	./trade_logic 10 10 < price_val.log > trade.log
+	./trade_logic 100000 10 10 < price_val.log 2> trade.log
