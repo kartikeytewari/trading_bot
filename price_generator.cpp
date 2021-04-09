@@ -24,7 +24,7 @@ int main(int count, char* inp[])
     cout << n << endl;
     for (int i=0;i<=n-1;i++)
     {
-        cout << (rand()%10000)+1 << " ";
+        cout << (rand()%2000)+1000 << " ";
     }
     cout << endl;
 
