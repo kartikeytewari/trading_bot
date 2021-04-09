@@ -30,8 +30,8 @@ pair<int,int> share_sell (pair<int,int> initial_asset, int price, int buffer)
 
 void print_asset(pair<int,int> asset)
 {
-    cout << "Money with the bot = " << asset.first << endl;
-    cout << "Share with the bot = " << asset.second << endl;
+    cerr << "Money with the bot = " << asset.first << endl;
+    //cerr << "Share with the bot = " << asset.second << endl;
 }
 
 int main(int count, char* inp[])
@@ -83,15 +83,16 @@ int main(int count, char* inp[])
         if ((real_price[i]>moving_price[i])&&(moving_price[i]>moving_price[i-1]))
         {
             asset=share_sell(asset,real_price[i],share_buffer);
-            cerr << "BUY" << endl;
+            cout << "BUY" << endl;
         }
         else if ((real_price[i]<moving_price[i])&&(moving_price[i]<moving_price[i-1]))
         {
             asset=share_buy(asset,real_price[i],share_buffer);
-            cerr << "SELL" << endl;
+            cout << "SELL" << endl;
         }
     }
 
+    asset=share_sell(asset,real_price[n-1],asset.second);
     print_asset(asset);
 
     return 0;

@@ -20,11 +20,12 @@ int main(int count, char* inp[])
 
     int n=stoi(inp[1]);
     srand(stoi(inp[2]));
+    cerr << "Random seed value: " << stoi(inp[2]) << endl;
 
     cout << n << endl;
     for (int i=0;i<=n-1;i++)
     {
-        cout << (rand()%2000)+1000 << " ";
+        cout << (rand()%1100)+1000 << " ";
     }
     cout << endl;
 
