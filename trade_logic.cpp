@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// share buy logic
+// asset buy logic
 pair<int,int> share_buy(pair<int,int> initial_asset, int price, int buffer)
 {
     pair<int,int> local=initial_asset;
@@ -17,7 +17,7 @@ pair<int,int> share_buy(pair<int,int> initial_asset, int price, int buffer)
     return local;
 }
 
-// share sell logic
+// asset sell logic
 pair<int,int> share_sell (pair<int,int> initial_asset, int price, int buffer)
 {
     pair<int,int> local=initial_asset;
@@ -28,10 +28,11 @@ pair<int,int> share_sell (pair<int,int> initial_asset, int price, int buffer)
     return local;
 }
 
+// print asset log to error stream
 void print_asset(pair<int,int> asset)
 {
     cerr << "Money with the bot = " << asset.first << endl;
-    //cerr << "Share with the bot = " << asset.second << endl;
+    cerr << "Share with the bot = " << asset.second << endl;
 }
 
 int main(int count, char* inp[])
@@ -80,18 +81,19 @@ int main(int count, char* inp[])
 
     for (int i=1;i<=n-1;i++)
     {
+		// sell
         if ((real_price[i]>moving_price[i])&&(moving_price[i]>moving_price[i-1]))
         {
             asset=share_sell(asset,real_price[i],share_buffer);
             cout << "BUY" << endl;
         }
+		// buy
         else if ((real_price[i]<moving_price[i])&&(moving_price[i]<moving_price[i-1]))
         {
             asset=share_buy(asset,real_price[i],share_buffer);
             cout << "SELL" << endl;
         }
     }
-
     asset=share_sell(asset,real_price[n-1],asset.second);
     print_asset(asset);
 
