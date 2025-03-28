@@ -1,8 +1,6 @@
 # project dependent files
 *.log
 
-
-
 # general language dependent files
 ### C++ ###
 # Prerequisites
@@ -23,6 +21,7 @@
 
 # Debugger Files
 *.pdb
+*.dSYM
 
 # Compiled Dynamic libraries
 *.so
